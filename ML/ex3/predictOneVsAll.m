@@ -30,11 +30,14 @@ X = [ones(m, 1) X];
 %       for each row.
 %       
 
-
-
-
-
-
+for i=1:m
+	prob = zeros(num_labels, 1);
+	for j=1:num_labels
+		prob(j) = sigmoid(X(i,:) * all_theta(j,:)');
+	endfor
+	[maxp, idx] = max(prob);
+	p(i) = idx;
+endfor
 
 % =========================================================================
 
